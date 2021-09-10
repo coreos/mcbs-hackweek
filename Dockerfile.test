@@ -1,0 +1,6 @@
+FROM localhost/coreos-override-builder as builder
+COPY test /root/test
+RUN coreos-override-builder /root/test /root/out
+
+FROM registry.access.redhat.com/ubi8/ubi-minimal
+COPY --from=builder /root/out /coreos-overrides

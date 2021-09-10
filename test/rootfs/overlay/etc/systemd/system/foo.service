@@ -1,0 +1,7 @@
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/foo
+
+[Install]
+WantedBy=multi-user.target
