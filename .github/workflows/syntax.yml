@@ -1,0 +1,19 @@
+name: Syntax check
+
+permissions:
+  actions: read
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: quay.io/coreos-assembler/fcos-buildroot:testing-devel
+
+    steps:
+      - name: make test
+        run: make test
